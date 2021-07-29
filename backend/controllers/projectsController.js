@@ -1,11 +1,11 @@
-const express = require('express')
-const router = express.Router()
+const Express = require('express')
+const Router = Express.Router()
 
-const project = require('../models/project')
+const Project = require('../models/project')
 
 //get all projects
-router.get('/', (req, res) => {
-	project.find({}, (error, docs) => {
+Router.get('/', (req, res) => {
+	Project.find({}, (error, docs) => {
 		if (!error) {
 			res.send(docs)
 		} else {
@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
 })
 
 //get by id
-router.get('/:projectID', (req, res) => {
+Router.get('/:projectID', (req, res) => {
 	let projectID = req.params.projectID
-	project.findById(projectID, (error, project) => {
+	Project.findById(projectID, (error, project) => {
 		if (!error) {
 			res.send(project)
 		} else {
@@ -27,9 +27,9 @@ router.get('/:projectID', (req, res) => {
 })
 
 //post
-router.post('/', (req, res) => {
+Router.post('/', (req, res) => {
 	let project = req.body
-	project.create(project, (error, project) => {
+	Project.create(project, (error, project) => {
 		if (!error) {
 			res.send(project)
 		} else {
@@ -39,49 +39,43 @@ router.post('/', (req, res) => {
 })
 
 //update user
-router.put('/:projectID', async (req, res) => {
+Router.put('/:projectID', (req, res) => {
 	let projectID = req.params.projectID
 	let newProjectEdit = req.body
-	try {
-		project.findById(projectID, (project) => {
-			
-			if (project) {
-				project.name = newProjectEdit.name || project.name
-				project.description = newProjectEdit.description || project.description
-				project.picture_url = newProjectEdit.picture_url || project.picture_url
-				project.save((error, updatedProject) => {
-					if (!error) {
-						res.send(updatedProject)
-					} else {
-						res.send(error)
-					}
-				})
-			}
-		})
-	} catch (error) {
-		res.send({error: error})
-	}
+
+	Project.findById(projectID, (error, project) => {
+		if (!error) {
+			project.name = newProjectEdit.name || project.name
+			project.description = newProjectEdit.description || project.description
+			project.picture_url = newProjectEdit.picture_url || project.picture_url
+			project.save((error, updatedProject) => {
+				if (!error) {
+					res.send(updatedProject)
+				} else {
+					res.send(error)
+				}
+			})
+		} else {
+			res.send({error: error})
+		}
+	})
 })
 //delete user by id
-router.delete('/:projectID', (req, res) => {
+Router.delete('/:projectID', (req, res) => {
 	let projectID = req.params.projectID
-	try {
-		project.findById(projectID, (error, project) => {
-			if (project) {
-				project.remove((error) => {
-					if (!error) {
-						res.send('PROJECT DELETED')
-					} else {
-						res.send({error: error})
-					}
-				})
-			} else {
-				res.send({error: error})
-			}
-		})
-	} catch (error) {
-		res.send({error: error})
-	}
+	Project.findById(projectID, (error, project) => {
+		if (!error) {
+			project.remove((error) => {
+				if (!error) {
+					res.send('PROJECT DELETED')
+				} else {
+					res.send({error: error})
+				}
+			})
+		} else {
+			res.send({error: error})
+		}
+	})
 })
 
-module.exports = router
+module.exports = Router

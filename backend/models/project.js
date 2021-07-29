@@ -1,7 +1,7 @@
-const mongoose = require("mongoose")
+const Mongoose = require("mongoose")
 
-module.exports = mongoose.model("project", mongoose.Schema({
+module.exports = Mongoose.model("project", Mongoose.Schema({
 	"name" : String,
 	"description" : String,
 	"picture_url" : String
-}, {minimize: false}),"projects")
+}),"projects")
