@@ -1,5 +1,5 @@
-import React, {Fragment} from "react";
-import {Link as ScrollLink, animateScroll as scroll} from "react-scroll";
+import React from "react";
+import {Link as ScrollLink} from "react-scroll";
 
 //components
 import ContactForm from './components/ContactForm'
