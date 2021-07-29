@@ -1,11 +1,10 @@
 import React from "react";
 import {Link as ScrollLink, animateScroll as scroll} from "react-scroll";
-import './App.css';
-
 
 //components
 import ContactForm from './components/ContactForm'
 import SideMenu from "./components/SideMenu";
+import Projects from "./components/Projects";
 
 //project images
 import projectPlaceholder from './img/projectplaceholder.png'
@@ -71,44 +70,7 @@ function App() {
 			<section
 				id="projects"
 				className="bg-black text-white pl-52 ml-2 p-2 min-h-screen flex flex-col justify-center">
-				<h2 className="text-center text-4xl font-pressStart">Projects</h2>
-				{/*Table container*/}
-				<div className="">
-
-				</div>
-
-				{/*Portfolio*/}
-				<div className="cursor-pointer duration-300 w-10/12 m-auto mt-3 mb-0 p-3 flex flex-row items-center bg-gray-darkest hover:bg-gray">
-					<div className="w-4/12">
-						<img src={projectPlaceholder}/>
-					</div>
-					<div className="w-8/12 pl-3">
-						<h3 className="text-md font-pressStart">Portfolio</h3>
-						<p className="text-sm">This is a project about a podcast website where you can listen to a padcast and all that stuff.</p>
-					</div>
-				</div>
-
-				{/*Margarita Mania*/}
-				<div className="cursor-pointer duration-300 w-10/12 m-auto mt-3 mb-0 p-3 flex flex-row items-center bg-gray-darkest hover:bg-gray">
-					<div className="w-4/12">
-						<img src={projectPlaceholder}/>
-					</div>
-					<div className="w-8/12 pl-3">
-						<h3 className="text-md font-pressStart">Portfolio</h3>
-						<p className="text-sm">This is a project about a podcast website where you can listen to a padcast and all that stuff.</p>
-					</div>
-				</div>
-
-
-				<div className="cursor-pointer duration-300 w-10/12 m-auto mt-3 mb-0 p-3 flex flex-row items-center bg-gray-darkest hover:bg-gray">
-					<div className="w-4/12">
-						<img src={projectPlaceholder}/>
-					</div>
-					<div className="w-8/12 pl-3">
-						<h3 className="text-md font-pressStart">Portfolio</h3>
-						<p className="text-sm">This is a project about a podcast website where you can listen to a padcast and all that stuff.</p>
-					</div>
-				</div>
+				<Projects/>
 			</section>
 
 			{/*Contact*/}
