@@ -6,8 +6,6 @@ import jcLogo from "../img/jclogo.png";
 import githubLogo from "../img/githublogo.png";
 import linkedinLogo from "../img/linkedinlogo.png";
 
-
-
 function SideMenu() {
 	return (
 		<div className="w-52 h-screen fixed bg-gray-darkest select-none">

@@ -52,7 +52,6 @@ function App() {
 						hope to continue to work as a web developer in Denmark.
 					</p>
 				</div>
-
 			</section>
 
 			{/*Skills*/}
