@@ -1,19 +1,15 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {Link as ScrollLink, animateScroll as scroll} from "react-scroll";
 
 //components
 import ContactForm from './components/ContactForm'
 import SideMenu from "./components/SideMenu";
-import Projects from "./components/Projects";
-
-//project images
-import projectPlaceholder from './img/projectplaceholder.png'
-
+import ProjectsList from "./components/ProjectsList";
 
 function App() {
 	return (
 		<div className="font-roboto bg-gray-dark">
-			<SideMenu />
+			<SideMenu/>
 
 			{/*Home*/}
 			<section
@@ -70,7 +66,9 @@ function App() {
 			<section
 				id="projects"
 				className="bg-black text-white pl-52 ml-2 p-2 min-h-screen flex flex-col justify-center">
-				<Projects/>
+				<h2 className="text-center text-4xl font-pressStart">Projects</h2>
+
+				<ProjectsList/>
 			</section>
 
 			{/*Contact*/}
