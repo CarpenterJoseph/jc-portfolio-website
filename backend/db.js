@@ -1,9 +1,8 @@
-const Mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 function connect(mongoURL) {
-	//connect to mongoDB
 	try {
-		Mongoose.connect(mongoURL, {
+		mongoose.connect(mongoURL, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true
 		}).then(r => {

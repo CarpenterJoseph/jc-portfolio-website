@@ -1,24 +1,21 @@
-const Express = require('express')
+const express = require('express')
 
 //database
-const DB = require('./DB')
+const db = require('./db')
 
 //config
-const app = Express()
-const port = 3000
+const app = express()
+const port = 3001
+const apiURL = "/api"
+const mongoURL = process.env.MONGODB_URL || 'mongodb://localhost:27017/projects'
 
 //middleware
-app.use(Express.json())
+app.use(express.json())
 
-//routes
-app.use("/api/projects", require("./routes/Projects"))
+//controllers
+app.use(`${apiURL}/projects`, require("./controllers/projectsController"))
 
-
-
-const mongoURL = process.env.MONGODB_URL || 'mongodb://localhost:27017/projects'
-DB.connect(mongoURL)
-
-
+db.connect(mongoURL)
 
 app.listen(port, () => {
 	console.log(`Server listening on port ${port}`)
