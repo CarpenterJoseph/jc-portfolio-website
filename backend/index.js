@@ -5,14 +5,16 @@ const Cors = require('cors')
 const DB = require('./DB')
 
 //config
+require('dotenv').config()
 const app = Express()
-const port = 3001
+const port = process.env.PORT
 const apiURL = "/api"
-const mongoURL = process.env.MONGODB_URL || 'mongodb://localhost:27017/projects'
+const mongoURL = process.env.MONGODB_URL
 DB.connect(mongoURL)
 
 //middleware
 app.use(Express.json())
+app.use('/static', Express.static('public'))
 app.use(Cors({
 	origin: "*"
 }))
@@ -20,8 +22,7 @@ app.use(Cors({
 //controllers
 app.use(`${apiURL}/projects`, require("./controllers/ProjectsController"))
 
-
-
+//listen
 app.listen(port, () => {
 	console.log(`Server listening on port ${port}`)
 })
