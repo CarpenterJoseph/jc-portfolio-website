@@ -68,8 +68,8 @@ function SideMenu() {
 
 			{/*External Link Logos*/}
 			<div className="pt-24 flex flex-row justify-center space-x-4">
-				<a className="cursor-pointer w-6 duration-300 icon"><img alt="Github Link" src={githubLogo}/></a>
-				<a className="cursor-pointer w-6 duration-300 icon"><img alt="Linkedin Link" src={linkedinLogo}/></a>
+				<a className="cursor-pointer w-6 duration-300 icon" href="#"><img alt="Github Link" src={githubLogo}/></a>
+				<a className="cursor-pointer w-6 duration-300 icon" href="#"><img alt="Linkedin Link" src={linkedinLogo}/></a>
 			</div>
 		</div>
 	)

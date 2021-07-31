@@ -1,23 +1,9 @@
-import React, {Fragment, useEffect, useState} from 'react'
+import React, {Fragment} from 'react'
 
-function ProjectsList() {
-	const [projects, setProjects] = useState([])
-
-	useEffect(() => {
-		async function fetchProjectsAPI() {
-			const response = await fetch('http://localhost:3001/api/projects/')
-			const projects = await response.json()
-			setProjects(projects)
-		}
-
-		fetchProjectsAPI().catch((error) => {
-			console.log(error)
-		})
-	}, [])
-
+function ProjectsList(props) {
 	return (
 		<Fragment>
-			{projects.map((project) => {
+			{props.projects.map((project) => {
 				return (
 					<div
 						key={project._id}
